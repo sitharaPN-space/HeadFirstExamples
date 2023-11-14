@@ -9,7 +9,7 @@ public class FindGuitarTester {
 	public static void main(String[] args) {
 		Inventory inventory = new Inventory();
 		initializeInventory(inventory);
-		GuitarSpec want = new GuitarSpec(Builder.FENDER,"Stracoster",Type.ELECTRIC,Wood.ALDER,Wood.ALDER);
+		GuitarSpec want = new GuitarSpec(Builder.COLLINGS,"Stracoster",Type.ELECTRIC,Wood.ALDER,Wood.ALDER,12);
 		
 		List<Guitar> matchingGuitars = inventory.search(want);
 		
@@ -33,7 +33,7 @@ public class FindGuitarTester {
 	
 	private static void initializeInventory(Inventory inventory) {
 		
-		inventory.addGuitar("V95693 ", 1499.95, new GuitarSpec(Builder.FENDER, "Stracoster", Type.ELECTRIC, Wood.ALDER, Wood.ALDER));
-		inventory.addGuitar("V9512 ", 1549.95, new GuitarSpec(Builder.FENDER, "Stracoster", Type.ELECTRIC, Wood.ALDER, Wood.ALDER));
+		inventory.addGuitar("V95693 ", 1499.95, new GuitarSpec(Builder.FENDER, "Stracoster", Type.ELECTRIC, Wood.ALDER, Wood.ALDER,12));
+		inventory.addGuitar("V9512 ", 1549.95, new GuitarSpec(Builder.FENDER, "Stracoster", Type.ELECTRIC, Wood.ALDER, Wood.ALDER,8));
 	}
 }
