@@ -1,4 +1,7 @@
 package main;
+import java.util.Iterator;
+import java.util.List;
+
 import main.Constants.*;
 
 public class FindGuitarTester {
@@ -8,15 +11,21 @@ public class FindGuitarTester {
 		initializeInventory(inventory);
 		Guitar want = new Guitar("", 0, Builder.FENDER,"Stracoster",Type.ELECTRIC,Wood.ALDER,Wood.ALDER);
 		
-		Guitar guitar = inventory.search(want);
+		List<Guitar> matchingGuitars = inventory.search(want);
 		
-		if(guitar != null) {
-			System.out.println("Resuslts: \n" + 
-				guitar.getBuilder()+ " " + guitar.getModel() + " " + 
-				guitar.getType() + " " + " guitar: \n " + " " + 
-				guitar.getTopWood() + " " + " Top Wood" + " " +
-				guitar.getBackWood() + " " + " Back Wood \n " + " " +
-				"You can have it for " + guitar.getPrice()+ "!");
+		if(!matchingGuitars.isEmpty()) {
+			System.out.println("Resuslts: \n");
+			for(Iterator<Guitar> i = matchingGuitars.iterator(); i.hasNext();) {
+				Guitar guitar = (Guitar)i.next();
+				
+				System.out.println("We have a \n" +
+						guitar.getBuilder()+ " " + guitar.getModel() + " " + 
+						guitar.getType() + " " + " guitar: \n " + " " + 
+						guitar.getTopWood() + " " + " Top Wood" + " " +
+						guitar.getBackWood() + " " + " Back Wood \n " + " " +
+						"You can have it for " + guitar.getPrice()+ "!");
+			}
+				
 		} else {
 			System.out.println("Sorry, we have nothing for you.");
 		}
